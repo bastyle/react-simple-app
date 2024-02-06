@@ -1,3 +1,28 @@
+# COMP 308 Assignment 1
+## Bastian Bastias 
+Purpose:	The purpose of this assignment is to:
+•	Become familiar with modern front-end frameworks
+•	Become familiar with function components
+•	Develop a UI using React
+
+
+References:	Read the reference textbook, lecture slides, and class examples. This material provides the necessary information that you need to complete the exercises.
+
+Be sure to read the following general instructions carefully:
+- This assignment must be completed individually by all the students.
+- See the naming and submission rules at the end of this document
+- You will have to provide an demonstration for your solution in class and upload the solution on eCentennial through the assignment link.
+
+Exercise 1
+
+Create a UI that allows students to evaluate their courses. You will have to provide a login form to allow the students to login, a comments form to allow the students to enter the comments, and the Thank You form. The login form should accept the student’s email address) and password.
+
+The comments form should automatically populate the email field with the student’s email value entered in login form and allow the student to enter the course code, course name, and comments. Provide also two other fields in this form that will be different for each student. For example, you may create fields for a favorite topic, favorite assignment, strongest technical skill obtained in this course, etc. The Thank You form should thank the user for providing the comments.
+Implement a folder structure for your application similar to class examples. Design nice and friendly forms.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,23 +1,48 @@
-import logo from './logo.svg';
+// App.js
+import React, { useState } from 'react';
 import './App.css';
+import LoginForm from './components/forms/LoginForm';
+import CommentsForm from './components/forms/CommentsForm';
+import ThankYouForm from './components/forms/ThankForm';
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userComments, setUserComments] = useState('');
+
+  const handleLogin = (enteredEmail, enteredPassword) => {
+    // Implement your authentication logic here
+    // For simplicity, we'll just set loggedIn to true if email and password are not empty
+    if (enteredEmail !== '' && enteredPassword !== '') {
+      setLoggedIn(true);
+      setEmail(enteredEmail);
+      setPassword(enteredPassword);
+    }
+  };
+
+  const handleLogout = () => {
+    setLoggedIn(false);
+    setEmail('');
+    setPassword('');
+    setUserComments('');
+  };
+
+  const handleCommentsSubmit = (enteredComments) => {
+    // Implement your logic to save comments to the server/database here
+    setUserComments(enteredComments);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {loggedIn ? (
+        <>
+          <ThankYouForm onLogout={handleLogout} />
+          <CommentsForm onSubmit={handleCommentsSubmit} />
+        </>
+      ) : (
+        <LoginForm onLogin={handleLogin} />
+      )}
     </div>
   );
 }
