@@ -1,6 +1,7 @@
 // components/LoginForm.js
 import React, { useState } from 'react';
 
+
 const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,7 +12,7 @@ const LoginForm = ({ onLogin }) => {
 
   return (
     <>
-      <h1>Login</h1>
+      <h1>Login to evaluate the course.</h1>
       <form>
         <label>
           Email:
