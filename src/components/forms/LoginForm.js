@@ -38,24 +38,34 @@ const LoginForm = ({ onLogin }) => {
       <h1>Login</h1>
       <form>
         <div className="form-group">
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <table>
+            <tr>
+              <td>
+                <label>Email:</label>
+                </td>
+              <td>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+              </td>
+            </tr>
+          <tr>
+            <td>
+              <label>Password:</label>
+            </td>
+            <td>
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            </td>
+          </tr>
+          <tr>            
+            <td colSpan={2}>
+            <button type="button" onClick={handleLogin}>
+              Login
+            </button>
+            </td>
+          </tr>
+        </table>         
+        
+        
         </div>
-        <div className="form-group">
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="button" onClick={handleLogin}>
-          Login
-        </button>
       </form>
       <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
     </>
