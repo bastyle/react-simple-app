@@ -12,8 +12,6 @@ function App() {
   const [userComments, setUserComments] = useState('');
 
   const handleLogin = (enteredEmail, enteredPassword) => {
-    // Implement your authentication logic here
-    // For simplicity, we'll just set loggedIn to true if email and password are not empty
     if (enteredEmail !== '' && enteredPassword !== '') {
       setLoggedIn(true);
       setEmail(enteredEmail);

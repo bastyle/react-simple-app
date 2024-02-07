@@ -28,20 +28,19 @@ form {
   align-items: center;
 }
 
+
 label {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   margin-bottom: 8px;
   font-weight: bold;
   text-align: left;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 8px;
-  margin: 8px 0;
-  box-sizing: border-box;
+
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 button {
@@ -62,29 +61,35 @@ button:hover {
   background-color: #45a049;
 }
 
-/* LoginForm.css */
-.LoginForm {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+/* App.css */
+/* ... (previous styles) */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 20px;
 }
 
-/* CommentsForm.css */
-.CommentsForm {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
 
-/* ThankYouForm.css */
-.ThankYouForm {
-  background-color: #4caf50;
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
+/* New styles for inline error messages */
+.inline-error {
+  color: red;
+  font-size: 14px;
+  margin-left: 10px;
+}
