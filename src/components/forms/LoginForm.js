@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const LoginForm = ({ onLogin }) => {
+const LoginForm = ({ onLogin, setStudentEmail  }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

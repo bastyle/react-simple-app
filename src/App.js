@@ -36,10 +36,10 @@ function App() {
       {loggedIn ? (
         <>
           <ThankYouForm onLogout={handleLogout} />
-          <CommentsForm onSubmit={handleCommentsSubmit} />
+          <CommentsForm onSubmit={handleCommentsSubmit} studentEmail={email} />
         </>
       ) : (
-        <LoginForm onLogin={handleLogin} />
+        <LoginForm onLogin={handleLogin}  setStudentEmail={setEmail}/>
       )}
     </div>
   );
