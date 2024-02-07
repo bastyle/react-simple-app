@@ -6,43 +6,48 @@ import CommentsForm from './components/forms/CommentsForm';
 import ThankYouForm from './components/forms/ThankForm';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [userComments, setUserComments] = useState('');
-
-  const handleLogin = (enteredEmail, enteredPassword) => {
-    if (enteredEmail !== '' && enteredPassword !== '') {
-      setLoggedIn(true);
-      setEmail(enteredEmail);
-      setPassword(enteredPassword);
-    }
-  };
-
-  const handleLogout = () => {
-    setLoggedIn(false);
-    setEmail('');
-    setPassword('');
-    setUserComments('');
-  };
-
-  const handleCommentsSubmit = (enteredComments) => {
-    // Implement your logic to save comments to the server/database here
-    setUserComments(enteredComments);
-  };
-
-  return (
-    <div className="App">
-      {loggedIn ? (
-        <>
+  
+    const [studentEmail, setStudentEmail] = useState('');
+    const [showLoginForm, setShowLoginForm] = useState(true);
+    const [showCommentsForm, setShowCommentsForm] = useState(false);
+  
+    const handleLogin = (email, password) => {
+      setStudentEmail(email);
+      // Move to the comments form
+      setShowLoginForm(false);
+      setShowCommentsForm(true);
+    };
+  
+    const handleLogout = () => {
+      // Reset the student's email and show login form
+      setStudentEmail('');
+      setShowLoginForm(true);
+      setShowCommentsForm(false);
+    };
+  
+    const handleCommentsSubmit = (formData) => {
+      console.log('Form Data:', formData);
+      // Move to the thank you form
+      setShowCommentsForm(false);
+    };
+  
+    return (
+      <div className="App">
+        {showLoginForm && (
+          <LoginForm onLogin={handleLogin} setStudentEmail={setStudentEmail} />
+        )}
+        {showCommentsForm && (
+          <CommentsForm
+            studentEmail={studentEmail}
+            onSubmit={handleCommentsSubmit}
+            onLogout={handleLogout}
+          />
+        )}
+        {studentEmail && !showLoginForm && !showCommentsForm && (
           <ThankYouForm onLogout={handleLogout} />
-          <CommentsForm onSubmit={handleCommentsSubmit} studentEmail={email} />
-        </>
-      ) : (
-        <LoginForm onLogin={handleLogin}  setStudentEmail={setEmail}/>
-      )}
-    </div>
-  );
-}
+        )}
+      </div>
+    );
+  };
 
 export default App;
