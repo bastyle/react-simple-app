@@ -1,5 +1,6 @@
-// components/CommentsForm.js
 import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CommentsForm = ({ onSubmit, studentEmail, onLogout }) => {
   const [courseCode, setCourseCode] = useState('');
@@ -8,20 +9,30 @@ const CommentsForm = ({ onSubmit, studentEmail, onLogout }) => {
   const [favoriteTopic, setFavoriteTopic] = useState('');
   const [favoriteAssignment, setFavoriteAssignment] = useState('');
 
+
+  const validateForm = () => {
+    if (!courseCode.trim() || !courseName.trim() || !comments.trim() || !favoriteTopic.trim() || !favoriteAssignment.trim()) {
+      toast.error('All fields are required');
+      return false;
+    }
+    return true;
+  };
+
+
   const handleSubmit = () => {
-    // Validate the fields as needed before submitting
-    // For simplicity, we're assuming all fields are required
-
-    const formData = {
-      email: studentEmail,
-      courseCode,
-      courseName,
-      comments,
-      favoriteTopic,
-      favoriteAssignment,
-    };
-
-    onSubmit(formData);
+    
+    if (validateForm()) {
+      const formData = {
+        email: studentEmail,
+        courseCode,
+        courseName,
+        comments,
+        favoriteTopic,
+        favoriteAssignment,
+      };  
+      onSubmit(formData);
+    }
+    
   };
 
   return (
@@ -90,10 +101,10 @@ const CommentsForm = ({ onSubmit, studentEmail, onLogout }) => {
           </tbody>
         </table>
         <button type="button" onClick={handleSubmit}>
-          Submit Comments
+          Submit Comment
         </button>
-      </form>
-      <button onClick={onLogout}> 2</button>
+      </form>      
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
     </>
   );
 };
