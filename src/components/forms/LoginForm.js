@@ -18,7 +18,7 @@ const LoginForm = ({ onLogin, setStudentEmail  }) => {
   };
 
   const handleLogin = () => {
-    /*
+    
     if (!validateEmail(email)) {
       toast.error('Invalid email address');
       return;
@@ -29,7 +29,7 @@ const LoginForm = ({ onLogin, setStudentEmail  }) => {
         'Password must be at least 8 characters, with at least one uppercase letter, one lowercase letter, one number, and one special character.'
       );
       return;
-    }*/
+    }
 
     onLogin(email, password);
   };
